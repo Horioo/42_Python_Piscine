@@ -22,15 +22,17 @@ def countStuff(string: str):
         {digits} digits"
         )
 
-# ToDo Try and Except on this main()
 def main():
-    argc = len(sys.argv)
-    assert argc == 2 or argc == 1, "more than one argument is provided"
-    if argc == 1 or sys.argv[1] == "":
-        testString = input("What is the text to count?\n")
-    else:
-        testString = sys.argv[1]
-    countStuff(testString)
+    try:
+        argc = len(sys.argv)
+        assert argc == 2 or argc == 1, "more than one argument is provided"
+        if argc == 1 or sys.argv[1] == "":
+            testString = input("What is the text to count?\n")
+        else:
+            testString = sys.argv[1]
+        countStuff(testString)
+    except AssertionError as e:
+        print(f"AssertionError: {e}") 
 
 
 if __name__ == "__main__":
