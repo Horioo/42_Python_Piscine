@@ -1,5 +1,6 @@
 # Verificar os diferentes tipos de NULL, como nao podemos usar funcoes externas temos de verificar se o object é diferente do objecto para ver se é NaN
 # Com funcoes externas dava para usar o Math.isnan() para verificar mais facilmente
+# Pelo convenção do IEEE NaN é diferente de NaN, por isso fazer Object != Object dá True neste caso
 
 def NULL_not_found(object: any) -> int:
 	if isinstance(object, float) and object != object:
