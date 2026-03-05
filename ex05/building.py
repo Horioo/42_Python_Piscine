@@ -22,7 +22,7 @@ def countStuff(string: str):
         {digits} digits"
         )
 
-
+# ToDo Try and Except on this main()
 def main():
     argc = len(sys.argv)
     assert argc == 2 or argc == 1, "more than one argument is provided"
