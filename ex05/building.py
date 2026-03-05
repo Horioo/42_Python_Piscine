@@ -26,9 +26,7 @@ def countStuff(string: str):
 def main():
     argc = len(sys.argv)
     assert argc == 2 or argc == 1, "more than one argument is provided"
-    if argc == 1:
-        testString = input("What is the text to count?\n")
-    elif sys.argv[1] == "":
+    if argc == 1 or sys.argv[1] == "":
         testString = input("What is the text to count?\n")
     else:
         testString = sys.argv[1]
