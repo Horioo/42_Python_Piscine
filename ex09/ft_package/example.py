@@ -1,11 +1,6 @@
+import time
 import os
 import sys
-import time
-
-# time.perf_counter() Retorna um timer de alta resolucao
-# O flush() e usado para Python nao fazer buffering da string
-# (ou seja esperar que o buffer fique cheio ou esperar por um \n)
-# Sem flush a barra pode demorar a atualizar e fica a parecer congelada
 
 
 def ft_tqdm(lst: range) -> None:
@@ -80,8 +75,7 @@ def ft_tqdm(lst: range) -> None:
 
 
 def main():
-    for i in ft_tqdm(range(100)):
-        time.sleep(0.02)
+    print()
 
 
 if __name__ == "__main__":

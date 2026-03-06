@@ -19,8 +19,8 @@ def countStuff(string: str):
         {lowerLetters} lower letters\n \
         {punctuation} punctuation marks\n \
         {spaces} spaces\n \
-        {digits} digits"
-        )
+        {digits} digits")
+
 
 def main():
     try:
@@ -32,7 +32,7 @@ def main():
             testString = sys.argv[1]
         countStuff(testString)
     except AssertionError as e:
-        print(f"AssertionError: {e}") 
+        print(f"AssertionError: {e}")
 
 
 if __name__ == "__main__":
