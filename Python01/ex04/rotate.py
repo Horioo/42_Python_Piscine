@@ -98,7 +98,7 @@ def rotate(image: list, start_r: int, end_r: int, start_c: int, end_c: int) \
 
 def main():
     image = ft_load("animal.jpeg")
-    new_image = rotate(image, 1005, 5005, 4050, 8050)
+    new_image = rotate(image, 105, 505, 450, 850)
     plt.imshow(new_image, cmap="gray")
     plt.show()
 

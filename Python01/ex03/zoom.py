@@ -62,6 +62,7 @@ ft_load
         print(f"New shape after slicing: \
 {new_image_gray_1.shape} or {new_image_gray.shape}")
         print(new_image_gray_1.astype(np.uint8))
+
         return new_image_gray_1
     except TypeError as e:
         print(f"TypeError: {e}")

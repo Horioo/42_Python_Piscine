@@ -39,6 +39,8 @@ def ft_load(path: str) -> list:
 def main():
     print(ft_load("landscape.jpg"))
 
+    print(ft_load.__doc__)
+
 
 if __name__ == "__main__":
     main()
