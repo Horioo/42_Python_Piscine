@@ -1,40 +1,61 @@
 import numpy as np
 from PIL import Image
 from load_image import ft_load
+import sys
 
 
-def ft_invert(image: np.ndarray) -> np.ndarray:
+def ft_invert(array) -> np.ndarray:
     """
     Inverts the colors of the image received
 
     Args:
-        image (np.ndarray): Image to invert colors
+        array : Image to invert colors
 
     Returns:
         np.ndarray: An array with the inverted colors
+
+    Raises:
+        AssertError: If the image is not RGB
     """
-    print(image)
-    image = image.squeeze()
-    inverted_image_arr = 255 - image
+    try:
+        assert array.ndim == 3 and array.shape[2] == 3, \
+            "image is not RGB image"
+    except AssertionError as e:
+        print(f"AssertError: {e}")
+        sys.exit(1)
+
+    print(array)
+    array = array.squeeze()
+    inverted_image_arr = 255 - array
 
     inverted_image = Image.fromarray(inverted_image_arr)
     inverted_image.show()
     return inverted_image
 
 
-def ft_red(image: np.ndarray) -> np.ndarray:
+def ft_red(array) -> np.ndarray:
     """
     Applies a Red Filter to the image by nullyfing the Green and Blue Values
     on RGB
 
     Args:
-        image (np.ndarray): Image to apply the red filter
+        array : Image to apply the red filter
 
     Returns:
         np.ndarray: An array with the red filter applied
+
+    Raises:
+        AssertError: If the image is not RGB
     """
-    print(image)
-    red_image_arr = image.copy()
+    try:
+        assert array.ndim == 3 and array.shape[2] == 3, \
+            "image is not RGB image"
+    except AssertionError as e:
+        print(f"AssertError: {e}")
+        sys.exit(1)
+
+    print(array)
+    red_image_arr = array.copy()
     red_image_arr[..., 1] = 0
     red_image_arr[..., 2] = 0
 
@@ -43,19 +64,29 @@ def ft_red(image: np.ndarray) -> np.ndarray:
     return red_image
 
 
-def ft_green(image: np.ndarray) -> np.ndarray:
+def ft_green(array) -> np.ndarray:
     """
     Applies a Green Filter to the image by nullyfing the Red and Blue Values
     on RGB
 
     Args:
-        image (np.ndarray): Image to apply the green filter
+        array : Image to apply the green filter
 
     Returns:
         np.ndarray: An array with the green filter applied
+
+    Raises:
+        AssertError: If the image is not RGB
     """
-    print(image)
-    green_image_arr = image.copy()
+    try:
+        assert array.ndim == 3 and array.shape[2] == 3, \
+            "image is not RGB image"
+    except AssertionError as e:
+        print(f"AssertError: {e}")
+        sys.exit(1)
+
+    print(array)
+    green_image_arr = array.copy()
     green_image_arr[..., 0] = 0
     green_image_arr[..., 2] = 0
 
@@ -64,19 +95,29 @@ def ft_green(image: np.ndarray) -> np.ndarray:
     return green_image
 
 
-def ft_blue(image: np.ndarray) -> np.ndarray:
+def ft_blue(array) -> np.ndarray:
     """
     Applies a Blue Filter to the image by nullyfing the Green and Red Values
     on RGB
 
     Args:
-        image (np.ndarray): Image to apply the blue filter
+        array : Image to apply the blue filter
 
     Returns:
         np.ndarray: An array with the blue filter applied
+
+    Raises:
+        AssertError: If the image is not RGB
     """
-    print(image)
-    blue_image_arr = image.copy()
+    try:
+        assert array.ndim == 3 and array.shape[2] == 3, \
+            "image is not RGB image"
+    except AssertionError as e:
+        print(f"AssertError: {e}")
+        sys.exit(1)
+
+    print(array)
+    blue_image_arr = array.copy()
     blue_image_arr[..., 0] = 0
     blue_image_arr[..., 1] = 0
 
@@ -85,21 +126,30 @@ def ft_blue(image: np.ndarray) -> np.ndarray:
     return blue_image
 
 
-def ft_grey(image: np.ndarray) -> np.ndarray:
+def ft_grey(array) -> np.ndarray:
     """
-    Applies a GreyScale Filter to the image by using the Luminosity formula
-    on the RGB values
-    Formula: Y = 0.299 * R + 0.587 * G + 0.114 * B
+    Applies a GreyScale Filter to the image using only Division
+    It take only the green value because its the closest for the human eye
 
     Args:
-        image (np.ndarray): Image to apply the red filter
+        array : Image to apply the red filter
 
     Returns:
         np.ndarray: An array with the red filter applied
+
+    Raises:
+        AssertError: If the image is not RGB
     """
-    print(image)
-    grey_image_arr = np.dot(
-                image[..., :3], [0.2989, 0.5870, 0.1140])
+    try:
+        assert array.ndim == 3 and array.shape[2] == 3, \
+            "image is not RGB image"
+    except AssertionError as e:
+        print(f"AssertError: {e}")
+        sys.exit(1)
+
+    print(array)
+    grey_image_arr = array.copy()
+    grey_image_arr = array[..., 1]
 
     grey_image = Image.fromarray(grey_image_arr)
     grey_image.show()
