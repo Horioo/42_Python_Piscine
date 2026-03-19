@@ -7,9 +7,6 @@
 # that is way faster than normal python since it uses
 # C as its base
 
-import sys
-
-
 def give_bmi(height: list[int | float], weight: list[int | float]) \
         -> list[int | float]:
     """
@@ -36,8 +33,7 @@ in Size"
 
         return [w / (h * h) for h, w in zip(height, weight)]
     except AssertionError as e:
-        print(f"AssertionError: {e}")
-        sys.exit(0)
+        raise Exception(f"AssertionError: {e}")
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:

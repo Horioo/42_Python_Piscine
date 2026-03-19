@@ -6,7 +6,6 @@
 # for example the -2 will ignore the last 2 results
 
 import numpy as np
-import sys
 
 
 def slice_me(family: list, start: int, end: int) -> list:
@@ -29,11 +28,9 @@ def slice_me(family: list, start: int, end: int) -> list:
         if not all(len(row) == len(family[0]) for row in family):
             raise ValueError("Not all elements are the same size")
     except ValueError as e:
-        print(f"ValueError: {e}")
-        sys.exit(0)
+        raise Exception(f"ValueError: {e}")
     except TypeError as e:
-        print(f"TypeError: {e}")
-        sys.exit(0)
+        raise Exception(f"TypeError: {e}")
 
     f_arr = np.array(family, dtype=float)
     print(f"My shape is : {f_arr.shape}")

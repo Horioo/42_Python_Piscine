@@ -1,5 +1,4 @@
 import matplotlib.image as mpimg
-import sys
 
 
 # Needs a return type
@@ -23,14 +22,11 @@ def ft_load(path: str) -> list:
     try:
         img = mpimg.imread(path)
     except FileNotFoundError as e:
-        print(f"FileNotFoundError: {e}")
-        sys.exit(0)
+        raise Exception(f"FileNotFoundError: {e}")
     except PermissionError as e:
-        print(f"PermissionError: {e}")
-        sys.exit(0)
+        raise Exception(f"PermissionError: {e}")
     except OSError as e:
-        print(f"OSError: {e}")
-        sys.exit(0)
+        raise Exception(f"OSError: {e}")
 
     # print(f"The shape of image is: {img.shape}")
     # print(img)

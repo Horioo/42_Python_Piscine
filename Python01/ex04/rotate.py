@@ -1,7 +1,6 @@
 from load_image import ft_load
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
 
 
 def zoom(image: list, start_r: int, end_r: int, start_c: int, end_c: int) \
@@ -25,7 +24,8 @@ ft_load
 
     Raises:
         TypeError: If the provided image is not a NumPy array.
-        ValueError: If the slice indices are outside the image bounds
+        ValueError: If the sake a function that takes a path as argument,
+                    writes thelice indices are outside the image bounds
                     or if the start indices are greater than the end indices
     """
     try:
@@ -53,11 +53,9 @@ ft_load
         print(new_image_gray_1.astype(np.uint8))
         return new_image_gray_1
     except TypeError as e:
-        print(f"TypeError: {e}")
-        sys.exit(0)
+        raise Exception(f"TypeError: {e}")
     except ValueError as e:
-        print(f"ValueError: {e}")
-        sys.exit(0)
+        raise Exception(f"ValueError: {e}")
 
 
 def rotate(image: list, start_r: int, end_r: int, start_c: int, end_c: int) \
