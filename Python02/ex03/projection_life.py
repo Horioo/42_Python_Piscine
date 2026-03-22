@@ -40,6 +40,24 @@ def strtoint(string: str):
 
 
 def project_life_graph():
+    """
+    Plots a scatter graph showing the relationship between GDP per capita
+    and life expectancy for the year 1900.
+
+    This function loads two CSV datasets:
+    1. Income per person (GDP per capita, inflation-adjusted)
+    2. Life expectancy in years
+
+    It filters the datasets to only include data for the year 1900, merges
+    them on the 'country' column, and plots a scatter plot with:
+        - X-axis: GDP per capita (logarithmic scale)
+        - Y-axis: Life expectancy
+        - Tick marks at 300, 1K, and 10K for GDP
+        - Title, axis labels, and legend
+
+    Raises:
+        ValueError: If the year 1900 is not present in either dataset.
+    """
     data_income: pd.DataFrame \
         = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     data_life: pd.DataFrame = load("life_expectancy_years.csv")
@@ -60,12 +78,13 @@ def project_life_graph():
     merged: pd.DataFrame = pd.merge(data_income, data_life,
                                     on="country").dropna()
 
-    merged.plot.scatter(x="x", y="y")
+    merged.plot.scatter(x="x", y="y", label="1900 data")
     plt.xscale("log")
     plt.xticks([300, 1000, 10000], ["300", "1K", "10K"])
     plt.xlabel("Gross domestic product")
     plt.ylabel("Life Expectancy")
     plt.title("GDP and Life Expectancy on the year 1900")
+    plt.legend(loc='lower right')
     plt.show()
 
 
