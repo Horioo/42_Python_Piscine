@@ -3,17 +3,17 @@ import pandas as pd
 
 def load(path: str) -> pd.DataFrame:
     """
-    Function to load a csv
+    Load a CSV file into a pandas DataFrame.
 
     Args:
-        path (str): Path to the file to load
+        path (str): Path to the CSV file.
 
     Returns:
-        None: If the file in itself has any errors or cant be openned
-        data (pd.DataFrame): DataFrame from the file provided
+        pd.DataFrame | None: The loaded dataset as a DataFrame.
+        Returns None if the file cannot be opened or read.
 
-    Raises:
-        Exceptions: If any problem happens it will be risen
+    Notes:
+        Prints the shape of the dataset in the format (rows, columns).
     """
     try:
         data = pd.read_csv(path)
