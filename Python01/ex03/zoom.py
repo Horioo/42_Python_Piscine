@@ -39,42 +39,38 @@ ft_load
         ValueError: If the slice indices are outside the image bounds
                     or if the start indices are greater than the end indices
     """
-    try:
-        if not isinstance(image, np.ndarray):
-            raise TypeError("Image must be a numpy array")
-        h, w = image.shape[:2]
+    if not isinstance(image, np.ndarray):
+        raise TypeError("Image must be a numpy array")
+    h, w = image.shape[:2]
 
-        if end_r > h or end_c > w:
-            raise ValueError("Slice outside image bounds")
-        if start_r > end_r or start_c > end_c:
-            raise ValueError("Start value is bigger than End value")
+    if end_r > h or end_c > w:
+        raise ValueError("Slice outside image bounds")
+    if start_r > end_r or start_c > end_c:
+        raise ValueError("Start value is bigger than End value")
 
-        new_image = image[start_r:end_r, start_c:end_c]
+    new_image = image[start_r:end_r, start_c:end_c]
+    if new_image.ndim == 3:
+        new_image_gray = np.dot(
+            new_image[..., :3], [0.2989, 0.5870, 0.1140])
+    else:
+        new_image_gray = new_image
 
-        if new_image.ndim == 3:
-            new_image_gray = np.dot(
-                new_image[..., :3], [0.2989, 0.5870, 0.1140])
-        else:
-            new_image_gray = new_image
+    new_image_gray_1 = new_image_gray[:, :, np.newaxis]
 
-        new_image_gray_1 = new_image_gray[:, :, np.newaxis]
-
-        print(f"New shape after slicing: \
+    print(f"New shape after slicing: \
 {new_image_gray_1.shape} or {new_image_gray.shape}")
-        print(new_image_gray_1.astype(np.uint8))
-
-        return new_image_gray_1
-    except TypeError as e:
-        print(f"TypeError: {e}")
-    except ValueError as e:
-        print(f"ValueError: {e}")
+    print(new_image_gray_1.astype(np.uint8))
+    return new_image_gray_1
 
 
 def main():
-    image = ft_load("animal.jpeg")
-    new_image = zoom(image, 105, 505, 450, 850)
-    plt.imshow(new_image, cmap="gray")
-    plt.show()
+    try:
+        image = ft_load("animal.jpeg")
+        new_image = zoom(image, 105, 505, 450, 850)
+        plt.imshow(new_image, cmap="gray")
+        plt.show()
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":

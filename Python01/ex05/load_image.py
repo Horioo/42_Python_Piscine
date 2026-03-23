@@ -22,11 +22,17 @@ def ft_load(path: str) -> list:
     try:
         img = mpimg.imread(path)
     except FileNotFoundError as e:
-        raise Exception(f"FileNotFoundError: {e}")
+        print(f"Error: FileNotFoundError: {e}")
+        return None
     except PermissionError as e:
-        raise Exception(f"PermissionError: {e}")
+        print(f"Error: PermissionError: {e}")
+        return None
     except OSError as e:
-        raise Exception(f"OSError: {e}")
+        print(f"Error: OSError: {e}")
+        return None
+    except Exception as e:
+        print(f"Error: Exception: {e}")
+        return None
 
     print(f"The shape of image is: {img.shape}")
     print(img)
@@ -34,7 +40,7 @@ def ft_load(path: str) -> list:
 
 
 def main():
-    print(ft_load("landscape.jpg"))
+    print(ft_load("ladsadasdndscape.jpg"))
 
 
 if __name__ == "__main__":

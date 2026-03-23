@@ -95,10 +95,13 @@ def rotate(image: list, start_r: int, end_r: int, start_c: int, end_c: int) \
 
 
 def main():
-    image = ft_load("animal.jpeg")
-    new_image = rotate(image, 105, 505, 450, 850)
-    plt.imshow(new_image, cmap="gray")
-    plt.show()
+    try:
+        image = ft_load("animal.jpeg")
+        new_image = rotate(image, 105, 505, 450, 850)
+        plt.imshow(new_image, cmap="gray")
+        plt.show()
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":

@@ -33,7 +33,8 @@ in Size"
 
         return [w / (h * h) for h, w in zip(height, weight)]
     except AssertionError as e:
-        raise Exception(f"AssertionError: {e}")
+        print(f"Error: AssertionError: {e}")
+        return None
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
@@ -47,7 +48,11 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     Returns:
         List of Boolean
     """
-    return [value > limit for value in bmi]
+    try:
+        return [value > limit for value in bmi]
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 
 
 def main():

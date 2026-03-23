@@ -28,9 +28,11 @@ def slice_me(family: list, start: int, end: int) -> list:
         if not all(len(row) == len(family[0]) for row in family):
             raise ValueError("Not all elements are the same size")
     except ValueError as e:
-        raise Exception(f"ValueError: {e}")
+        print(f"ValueError: {e}")
+        return None
     except TypeError as e:
-        raise Exception(f"TypeError: {e}")
+        print(f"TypeError: {e}")
+        return None
 
     f_arr = np.array(family, dtype=float)
     print(f"My shape is : {f_arr.shape}")

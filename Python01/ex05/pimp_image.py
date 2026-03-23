@@ -20,7 +20,8 @@ def ft_invert(array) -> np.ndarray:
         assert array.ndim == 3 and array.shape[2] == 3, \
             "image is not RGB image"
     except AssertionError as e:
-        raise Exception(f"AssertError: {e}")
+        print(f"AssertionError: {e}")
+        return None
 
     print(array)
     array = array.squeeze()
@@ -49,7 +50,8 @@ def ft_red(array) -> np.ndarray:
         assert array.ndim == 3 and array.shape[2] == 3, \
             "image is not RGB image"
     except AssertionError as e:
-        raise Exception(f"AssertError: {e}")
+        print(f"AssertionError: {e}")
+        return None
 
     print(array)
     red_image_arr = array.copy()
@@ -79,7 +81,8 @@ def ft_green(array) -> np.ndarray:
         assert array.ndim == 3 and array.shape[2] == 3, \
             "image is not RGB image"
     except AssertionError as e:
-        raise Exception(f"AssertError: {e}")
+        print(f"AssertionError: {e}")
+        return None
 
     print(array)
     green_image_arr = array.copy()
@@ -109,7 +112,8 @@ def ft_blue(array) -> np.ndarray:
         assert array.ndim == 3 and array.shape[2] == 3, \
             "image is not RGB image"
     except AssertionError as e:
-        raise Exception(f"AssertError: {e}")
+        print(f"AssertionError: {e}")
+        return None
 
     print(array)
     blue_image_arr = array.copy()
@@ -139,7 +143,8 @@ def ft_grey(array) -> np.ndarray:
         assert array.ndim == 3 and array.shape[2] == 3, \
             "image is not RGB image"
     except AssertionError as e:
-        raise Exception(f"AssertError: {e}")
+        print(f"AssertionError: {e}")
+        return None
 
     print(array)
     grey_image_arr = array.copy()
