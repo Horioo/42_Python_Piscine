@@ -45,12 +45,15 @@ def load_graph(country: str):
         plt.title(f"{country} Life expectancy Projections")
         plt.show()
     except Exception as e:
-        raise Exception(f"Problem with the data provided {e}") from None
+        raise Exception(f"Problem with the data provided: {e}")
 
 
 def main():
-    country = 'France'
-    load_graph(country)
+    try:
+        country = 'Kuritiba'
+        load_graph(country)
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":

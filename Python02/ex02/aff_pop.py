@@ -118,7 +118,10 @@ def compare_campus_graph(campus1: str, campus2: str):
 
 
 def main():
-    compare_campus_graph("France", "Belgium")
+    try:
+        compare_campus_graph("France", "Belgium")
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":

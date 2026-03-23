@@ -89,7 +89,10 @@ def project_life_graph():
 
 
 def main():
-    project_life_graph()
+    try:
+        project_life_graph()
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
