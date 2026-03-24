@@ -31,8 +31,12 @@ def strtoint(string: str):
     string = string.strip()
     if not string or string == "NaN":
         return 0
+    if string.endswith('K'):
+        return int(float(string[:-1]) * 1_000)
     if string.endswith('M'):
         return int(float(string[:-1]) * 1_000_000)
+    if string.endswith('B'):
+        return int(float(string[:-1]) * 1_000_000_000)
     return int(string)
 
 
@@ -119,7 +123,7 @@ def compare_campus_graph(campus1: str, campus2: str):
 
 def main():
     try:
-        compare_campus_graph("France", "Belgium")
+        compare_campus_graph("Portugal", "China")
     except Exception as e:
         print(f"Error: {e}")
 
