@@ -1,6 +1,6 @@
 from S1E7 import Baratheon, Lannister
 
-# Heranca Diamante acontece quando uma classe herda de 2 classes que herdam 
+# Heranca Diamante acontece quando uma classe herda de 2 classes que herdam
 # da mesma classe mae
 
 # Python usa MRO (Method Resolution Order), que decreta uma ordem de Herança
