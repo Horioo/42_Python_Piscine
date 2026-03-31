@@ -1,4 +1,4 @@
-# Para usar um metodo da classe sem ter de instanciar procurei aqui 
+# Para usar um metodo da classe sem ter de instanciar procurei aqui
 # https://www.geeksforgeeks.org/python/how-to-call-a-method-on-a-class-without-instantiating-it-in-python/
 
 # Podemos usar 3 formas diferentes
@@ -59,3 +59,11 @@ class calculator:
         """
         res = [float(a - b) for a, b in zip(V1, V2)]
         print(f"Sous Vector is: {res}")
+
+
+def main():
+    print()
+
+
+if __name__ == "__main__":
+    main()

@@ -67,3 +67,11 @@ class calculator:
             raise ZeroDivisionError("Division by 0 detected")
         self.values = [v / object for v in self.values]
         print(self.values)
+
+
+def main():
+    print()
+
+
+if __name__ == "__main__":
+    main()
